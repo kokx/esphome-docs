@@ -1028,6 +1028,7 @@ Select Components
     LVGL widget Select, components/select/lvgl, lvgl_c_sel.png
     Modbus Select, components/select/modbus_controller, modbus.png
     Tuya Select, components/select/tuya, tuya.png
+    Duco Ventilation, components/duco, duco.svg
 
 Speaker Components
 ------------------
