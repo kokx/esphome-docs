@@ -14,7 +14,7 @@ This component is able to communicate directly ventilation system. You only need
 
 A Duco ventilation system such as the DucoBox Energy Comfort D325 has a 12-pin connector that is easily reachable on the PCB. This has the following pinout:
 
-.. image:: ../images/duco-pinout.jpg
+.. image:: ./duco/images/duco-pinout.jpg
 
 Pins 8 (RX) and 9 (TX) can be directly connected to the :ref:`UART Component <uart>` component using jumper wires. As a bonus, you can also take either 3.3V or 5V power from the pins to power an ESP32.
 
