@@ -16,7 +16,7 @@ A Duco ventilation system such as the DucoBox Energy Comfort D325 has a 12-pin c
 
 .. image:: ./duco/images/duco-pinout.jpg
 
-Pins 8 (RX) and 9 (TX) can be directly connected to the :ref:`UART Component <uart>` component using jumper wires. As a bonus, you can also take either 3.3V or 5V power from the pins to power an ESP32.
+Pins 8 (RX) and 9 (TX) can be directly connected to the :ref:`UART Component <uart>` component using jumper wires. As a bonus, you can also take either 3.3V or 5V power from the pins to power your module. It is also necessary to connect the ground of the DucoBox to ground of the ESP.
 
 The :ref:`UART Component <uart>` must be configured with a baud rate of 57600, 8 data bits, no parity, and 1 stop bit.
 
