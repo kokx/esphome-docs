@@ -20,7 +20,9 @@ Pins 8 (RX) and 9 (TX) can be directly connected to the :ref:`UART Component <ua
 
 The :ref:`UART Component <uart>` must be configured with a baud rate of 57600, 8 data bits, no parity, and 1 stop bit.
 
-Note: this ESPHome module has only been tested on a DucoBox Energy Comfort D325. It does use the same communication protocol as the Duco Connectivity Board.
+.. note::
+
+   This ESPHome module has only been tested on a DucoBox Energy Comfort D325. It does use the same communication protocol as the Duco Connectivity Board. It may or may not work on other Duco ventilation systems.
 
 .. _duco-gettingstarted:
 
