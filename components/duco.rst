@@ -22,7 +22,7 @@ The :ref:`UART Component <uart>` must be configured with a baud rate of 57600, 8
 
 .. note::
 
-   This ESPHome module has only been tested on a DucoBox Energy Comfort D325. It does use the same communication protocol as the Duco Connectivity Board. It may or may not work on other Duco ventilation systems.
+    This ESPHome module has only been tested on a DucoBox Energy Comfort D325. It does use the same communication protocol as the Duco Connectivity Board. It may or may not work on other Duco ventilation systems.
 
 .. _duco-gettingstarted:
 
