@@ -200,6 +200,24 @@ Configuration variables:
       sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
     - All other options from :ref:`config-sensor`
 
+Number component:
+-----------------
+
+The number component allows viewing and changing the comfort temperature of the ventilation system:
+
+.. code-block:: yaml
+
+    number:
+    - platform: duco
+      name: "Comfort Temperature"
+
+Configuration variables:
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- **name** (*Required*, string): Name of the sensor.
+- **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+  sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+- All other options from :ref:`config-number`
 
 
 See Also
