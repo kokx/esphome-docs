@@ -72,8 +72,15 @@ The Duco component can be configured as follows:
       uart_id: duco_uart
       discovery:
         update_interval: "10s"  # Will output the discovered nodes every 10 seconds
+      time:
+        time_id: sntp_time
 
-This will create a Duco component with discovery enabled, from a specific UART connection.
+This will create a Duco component with discovery and time synchronization enabled, from a specific UART connection.
+
+Using the **time** configuration variable, it is possible to enable time synchronization for your Duco Box. A time source should be configured in ESPHome.
+
+.. warning::
+   When the time changes on your Duco Box, the remaining time for the filter also changes. Synchronizing from a time in the past will decrease the remaining filter time accordingly.
 
 
 Configuration variables:
@@ -84,6 +91,10 @@ Configuration variables:
 - **discovery** (*Optional*): Enables component discovery output.
     - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
       sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+- **time** (*Optional*): Enables component discovery output.
+    - **time_id** (*Optional*, :ref:`config-id`): Manually specify the ID of the :doc:`Time Component <time/index>`.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``15m``.
 
 
 Select component:
