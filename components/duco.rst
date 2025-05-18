@@ -48,7 +48,7 @@ This will output all nodes for the Duco module to the logs every minute, for exa
     [00:00:00][I][duco:203]:   Node 52: type 18 (SWITCH)
     [00:00:00][I][duco:203]:   Node 67: type 9 (UC)
 
-This output shows six nodes connected to the Duco box. Some information can be read from them using this module. For example, you can read the ppm-value from the CO2-sensors with the following configuration:
+This output shows six nodes connected to the Duco box. Some information can be read from them using this module. For example, you can read the ppm-value and temperature from the CO2-sensors with the following configuration:
 
 .. code-block:: yaml
 
@@ -59,6 +59,11 @@ This output shows six nodes connected to the Duco box. Some information can be r
             name: "CO2 Bedroom"
           - address: 4
             name: "CO2 Livingroom"
+        temperature:
+          - address: 3
+            name: "Temperature Bedroom"
+          - address: 4
+            name: "Temperature Livingroom"
 
 Duco Component:
 ---------------
@@ -170,6 +175,8 @@ Configuration variables:
 Sensor component:
 -----------------
 
+The Duco box has the option to have CO2 and/or Humidity sensors attached. It can also read the current flow level, the time remaining in the current mode and the amount of days until the filter should be replaced. These can be configured as follows:
+
 .. code-block:: yaml
 
     sensor:
@@ -179,6 +186,16 @@ Sensor component:
             name: "CO2 Bedroom"
           - address: 4
             name: "CO2 Livingroom"
+        temperature:
+          - address: 3
+            name: "Temperature Bedroom"
+          - address: 4
+            name: "Temperature Livingroom"
+        humidity:
+          - address: 1
+            name: "Humidity Bathroom"
+          - address: 58
+            name: "Humidity Office"
         filter_remaining:
           name: "Filter Time Remaining"
         flow_level:
@@ -188,11 +205,25 @@ Sensor component:
           name: "Mode Time Remaining"
           update_interval: "5s"
 
+Note that both the CO2 and Humidity sensors have a built-in temperature sensor as well.
+
 Configuration variables:
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **co2** (*Optional*): One or more CO2 sensors. With the following configuration options:
     - **address** (*Required*, int): Address of the CO2 sensor.
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **temperature** (*Optional*): One or CO2 or humidity sensors. With the following configuration options:
+    - **address** (*Required*, int): Address of the sensor.
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **humidity** (*Optional*): One or more humidity sensors. With the following configuration options:
+    - **address** (*Required*, int): Address of the humidity sensor.
     - **name** (*Required*, string): Name of the sensor.
     - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
       sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
@@ -230,12 +261,12 @@ Configuration variables:
 - **name** (*Required*, string): Name of the sensor.
 - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
   sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
-- All other options from :ref:`config-number`
+- All other options from :ref:`config-number`.
 
 
 See Also
 --------
 
 - `Protocol Analysis <https://github.com/kokx/duco-reveng>`__
-- :apiref:`duco/duco.h.h`
+- :apiref:`duco/duco.h`
 - :ghedit:`Edit`
