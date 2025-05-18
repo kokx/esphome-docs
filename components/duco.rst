@@ -175,7 +175,7 @@ Configuration variables:
 Sensor component:
 -----------------
 
-The Duco box has the option to have CO2 and/or Humidity sensors attached. It can also read the current flow level, the time remaining in the current mode and the amount of days until the filter should be replaced. These can be configured as follows:
+The Duco box has the option to have CO2 and/or Humidity sensors attached. It can also read the current flow level, the time remaining in the current mode, the bypass status, temperatures of incoming and outgoing air, and the amount of days until the filter should be replaced. These can be configured as follows:
 
 .. code-block:: yaml
 
@@ -191,6 +191,10 @@ The Duco box has the option to have CO2 and/or Humidity sensors attached. It can
             name: "Temperature Bedroom"
           - address: 4
             name: "Temperature Livingroom"
+          - address: 1
+            name: "Temperature Bathroom"
+          - address: 58
+            name: "Temperature Office"
         humidity:
           - address: 1
             name: "Humidity Bathroom"
@@ -204,6 +208,17 @@ The Duco box has the option to have CO2 and/or Humidity sensors attached. It can
         time_remaining:
           name: "Mode Time Remaining"
           update_interval: "5s"
+        bypass:
+          name: "Bypass"
+        temperature_oda:
+          name: "Temperature Outdoor Air"
+        temperature_eha:
+          name: "Temperature Outdoor Exhaust"
+        temperature_sup:
+          name: "Temperature Supply To Room"
+        temperature_eta:
+          name: "Temperature Indoor Exhaust"
+
 
 Note that both the CO2 and Humidity sensors have a built-in temperature sensor as well.
 
@@ -239,6 +254,31 @@ Configuration variables:
       sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
     - All other options from :ref:`config-sensor`
 - **time_remaining** (*Optional*): Sensor for the time remaining on the current mode
+    - **name** (*Required*, string): Sensor name
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **temperature_oda** (*Optional*): Sensor for the outdoor air temperature
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **temperature_eha** (*Optional*): Sensor for the exhaust air temperature
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **temperature_sup** (*Optional*): Sensor for the supply air temperature
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **temperature_eta** (*Optional*): Sensor for the indoor outgoing air temperature
+    - **name** (*Required*, string): Name of the sensor.
+    - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
+      sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
+    - All other options from :ref:`config-sensor`
+- **bypass** (*Optional*): Sensor for the bypass value
     - **name** (*Required*, string): Sensor name
     - **update_interval** (*Optional*, :ref:`config-time`): The interval to check the
       sensor. Set to ``never`` to disable updates. Defaults to ``60s``.
